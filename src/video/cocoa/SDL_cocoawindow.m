@@ -278,11 +278,12 @@ SetWindowStyle(SDL_Window * window, NSUInteger style)
     NSUInteger oriStyle = [nswindow styleMask];
     NSUInteger FSCV = oriStyle & NSWindowStyleMaskFullSizeContentView;
     NSUInteger CL = oriStyle & NSWindowStyleMaskClosable;
-    
-    NSUInteger MLE = NSWindowStyleMaskMiniaturizable;
+    NSUInteger MLE = oriStyle & NSWindowStyleMaskMiniaturizable;
     NSUInteger TTLE = oriStyle & NSWindowStyleMaskTitled;
-    
-    NSUInteger defaults = FSCV | CL | MLE | TTLE;
+
+    if (!CL) style &= ~NSWindowStyleMaskClosable;
+    if (!MLE) style &= ~NSWindowStyleMaskMiniaturizable;
+    if (!TTLE) style &= ~NSWindowStyleMaskTitled;
 
     [nswindow setStyleMask:style | FSCV];
 
