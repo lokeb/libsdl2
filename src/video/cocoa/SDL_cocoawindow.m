@@ -275,7 +275,12 @@ SetWindowStyle(SDL_Window * window, NSUInteger style)
         [[nswindow contentView] setNextResponder:nil];
     }
 
-    [nswindow setStyleMask:style];
+    NSUInteger oriStyle = [nswindow styleMask];
+
+    oriStyle &= NSWindowStyleMaskFullSizeContentView;
+    oriStyle &= NSWindowStyleMaskClosable;
+
+    [nswindow setStyleMask:style|oriStyle];
 
     /* The view responder chain gets messed with during setStyleMask */
     if ([[nswindow contentView] nextResponder] != data->listener) {
