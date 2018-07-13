@@ -654,6 +654,27 @@ SDL_PumpEvents(void)
     SDL_SendPendingQuit();  /* in case we had a signal handler fire, etc. */
 }
 
+void
+SDL_ActivateEventsWatcher(void)
+{
+    SDL_VideoDevice *_this = SDL_GetVideoDevice();
+    
+    if(_this) {
+        _this->ActivateEventsWatcher(_this);
+    }
+}
+
+void
+SDL_DeactivateEventsWatcher(void)
+{
+    SDL_VideoDevice *_this = SDL_GetVideoDevice();
+    
+    if(_this) {
+        _this->DeactivateEventsWatcher(_this);
+    }
+}
+
+
 /* Public functions */
 
 int

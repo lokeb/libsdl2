@@ -652,6 +652,18 @@ extern DECLSPEC int SDLCALL SDL_WaitEventTimeout(SDL_Event * event,
                                                  int timeout);
 
 /**
+ * \brief
+ *
+ */
+extern DECLSPEC void SDLCALL SDL_ActivateEventWatcher(void);
+
+/**
+ * \brief
+ *
+ */
+extern DECLSPEC void SDLCALL SDL_DeactivateEventWatcher(void);
+
+/**
  *  \brief Add an event to the event queue.
  *
  *  \return 1 on success, 0 if the event was filtered, or -1 if the event queue

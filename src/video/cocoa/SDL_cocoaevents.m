@@ -51,6 +51,7 @@
 }
 
 static SDL_bool s_bShouldHandleEventsInSDLApplication = SDL_FALSE;
+static id eventHandlerId = nil;
 
 static void Cocoa_DispatchEvent(NSEvent *theEvent)
 {
@@ -446,6 +447,31 @@ Cocoa_PumpEvents(_THIS)
 
         // Pass events down to SDLApplication to be handled in sendEvent:
         [NSApp sendEvent:event];
+    }
+}}
+
+void
+Cocoa_ActivateEventsWatcher(_THIS)
+{ @autoreleasepool
+{
+
+    if (eventHandlerId == nil) {
+        eventHandlerId = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskAny handler:^NSEvent * _Nullable(NSEvent * _Nonnull event) {
+            if (!s_bShouldHandleEventsInSDLApplication) {
+                Cocoa_DispatchEvent(event);
+            }
+            return event;
+        }];
+    }
+}}
+
+void
+Cocoa_DeactivateEventsWatcher(_THIS)
+{ @autoreleasepool
+{
+    if(eventHandlerId != nil) {
+        [NSEvent removeMonitor:eventHandlerId];
+        eventHandlerId = nil;
     }
 }}
 
