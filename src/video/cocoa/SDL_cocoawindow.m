@@ -284,7 +284,7 @@ SetWindowStyle(SDL_Window * window, NSUInteger style)
     
     NSUInteger defaults = FSCV | CL | MLE | TTLE;
 
-    [nswindow setStyleMask:style & FSCV];
+    [nswindow setStyleMask:style | FSCV];
 
     /* The view responder chain gets messed with during setStyleMask */
     if ([[nswindow contentView] nextResponder] != data->listener) {
