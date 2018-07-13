@@ -669,5 +669,5 @@
 #define SDL_WinRTGetDeviceFamily SDL_WinRTGetDeviceFamily_REAL
 #define SDL_log10 SDL_log10_REAL
 #define SDL_log10f SDL_log10f_REAL
-#define SDL_ActivateEventWatcher SDL_ActivateEventWatcher_REAL
-#define SDL_DeactivateEventWatcher SDL_DeactivateEventWatcher_REAL
+#define SDL_ActivateEventsWatcher SDL_ActivateEventsWatcher_REAL
+#define SDL_DeactivateEventsWatcher SDL_DeactivateEventsWatcher_REAL

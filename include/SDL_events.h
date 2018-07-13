@@ -655,13 +655,13 @@ extern DECLSPEC int SDLCALL SDL_WaitEventTimeout(SDL_Event * event,
  * \brief
  *
  */
-extern DECLSPEC void SDLCALL SDL_ActivateEventWatcher(void);
+extern DECLSPEC void SDLCALL SDL_ActivateEventsWatcher(void);
 
 /**
  * \brief
  *
  */
-extern DECLSPEC void SDLCALL SDL_DeactivateEventWatcher(void);
+extern DECLSPEC void SDLCALL SDL_DeactivateEventsWatcher(void);
 
 /**
  *  \brief Add an event to the event queue.

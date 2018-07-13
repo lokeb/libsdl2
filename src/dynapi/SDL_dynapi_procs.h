@@ -707,5 +707,5 @@ SDL_DYNAPI_PROC(SDL_bool,SDL_IsAndroidTV,(void),(),return)
 #endif
 SDL_DYNAPI_PROC(double,SDL_log10,(double a),(a),return)
 SDL_DYNAPI_PROC(float,SDL_log10f,(float a),(a),return)
-SDL_DYNAPI_PROC(void,SDL_ActivateEventWatcher,(void),(),)
-SDL_DYNAPI_PROC(void,SDL_DeactivateEventWatcher,(void),(),)
+SDL_DYNAPI_PROC(void,SDL_ActivateEventsWatcher,(void),(),)
+SDL_DYNAPI_PROC(void,SDL_DeactivateEventsWatcher,(void),(),)
